@@ -1,0 +1,80 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+  <div class="row justify-content-center mt-3">
+    <div class="col-7">
+      <form
+        action="/listings/<%=listing._id%>?_method=PUT"
+        method="post"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="form-label">Title</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            name="listing[title]"
+            value="<%=listing.title%>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="form-label">Description</label>
+          <textarea
+            class="form-control"
+            required
+            placeholder="Enter description"
+            name="listing[description]"
+          >
+<%=listing.description%></textarea
+          >
+        </div>
+        <div class="mb-3">
+          <label for="form-label">Image</label>
+          <input
+            type="text"
+            name="listing[image]"
+            class="form-control"
+            value="<%=listing.image%>"
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="form-label">Price</label>
+            <input
+              required
+              name="listing[price]"
+              value="<%=listing.price%>"
+              type="number"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3 col-md-8">
+            <label for="form-label">Location</label>
+            <input
+              type="text"
+              required
+              class="form-control"
+              name="listing[location]"
+              value="<%=listing.location%>"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="form-label">Country</label>
+          <input
+            class="form-control"
+            required
+            type="text"
+            name="listing[country]"
+            value="<%=listing.country%>"
+          />
+        </div>
+
+        <button class="btn mb-3">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
